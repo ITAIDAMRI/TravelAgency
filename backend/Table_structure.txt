@@ -1,0 +1,58 @@
+Users:
+	id: varchar(50)
+	passport:  varchar(50)
+	first_name:  varchar(50)
+	last_name:  varchar(50)
+	permossion:  varchar(50)
+
+Flights:
+	id: int
+	plane: int (FK Planes: id)
+	origin: int (FK Countries: id)
+	destination: int (FK Countries: id)
+	departs: DateTime
+	price_usd: double
+	duration: double
+
+Flight_Seats:
+	id:  varchar(50)
+	flight_id: varchar(50) (FK Flights:id)
+	plane_seat:  varchar(50) (FK Plane_seats: id)
+	occupied: bool
+
+Planes: 
+	id:  varchar(50)
+	name:  varchar(50)
+
+Plane_seats:
+	id:  varchar(50)
+	plane_id:  varchar(50) (FK Planes: id)
+	seat_id:  varchar(50)
+
+Booking:
+	id:  varchar(50)
+	user_passport:  varchar(50) (FK Users: id)
+	flight_id:  varchar(50) (FK Flights: id)
+	payment:  varchar(50) (FK Payments: id)
+	date: DateTime
+
+Tickets:
+	id: int
+	booking; int (FK Bookings: id)
+	seat_id: varchar(50)
+
+	
+
+Payments: 
+	id:  varchar(50)
+	client:  varchar(50) (FK Users: id)
+	creditor_fname:  varchar(50)
+	creditor_lname;  varchar(50)
+	creditor_id:  varchar(50)
+	amount: double
+	date: DateTime
+	
+Countries:
+	id:  varchar(50)
+	name:  varchar(50)
+	
